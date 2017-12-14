@@ -16,9 +16,7 @@ docker build -t "tastee" .
 and run :
 
 ```
-docker run -it -v <LOCAL_PATH>:/tmp/tastee tastee -i /tmp/tastee/common-instructions.conf.tee -b firefox --path /tmp/tastee/tastee-reporting /tmp/tastee/starting-tastee.tee
+docker run -it -v <LOCAL_PATH>:/tmp/tastee tastee -b firefox -o /tmp/tastee/report /tmp/tastee/
 ```
 
-LOCAL_PATH is a directory containing the following files:
-- common-instructions.conf.tee
-- starting-tastee.tee
+LOCAL_PATH is a directory containing Tastee files.
