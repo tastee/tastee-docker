@@ -18,7 +18,7 @@ RUN apt-get install -y --allow-unauthenticated -q \
   git
 RUN npm install -g geckodriver
 RUN npm install -g chromedriver
-RUN npm install -g https://github.com/tastee/tastee-npm.git 
+RUN npm install -g tastee 
 ADD start.sh /tmp/start.sh
 RUN chmod -R 777 /tmp
 ENTRYPOINT ["/tmp/start.sh"]
