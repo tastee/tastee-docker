@@ -25,8 +25,6 @@ RUN npm install -g chromedriver \
     tastee \
     --unsafe-perm=true --allow-root
 
-RUN webdriver-manager update
-
 RUN wget -N http://chromedriver.storage.googleapis.com/$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip -P ~/
 RUN unzip ~/chromedriver_linux64.zip -d ~/
 RUN rm ~/chromedriver_linux64.zip
@@ -34,9 +32,8 @@ RUN mv -f ~/chromedriver /usr/local/bin/chromedriver
 RUN chown root:root /usr/local/bin/chromedriver
 RUN chmod 0755 /usr/local/bin/chromedriver
 
-ENV CHROME_ARGS="--no-sandbox --disable-setuid-sandbox --disable-gpu --disable-infobars" \
-    CHROME_ADDITIONAL_ARGS="" \
-    CHROME_VERBOSELOGGING="true"
+RUN webdriver-manager update
+
 ADD start.sh /tmp/start.sh
 RUN chmod -R 777 /tmp
 ENTRYPOINT ["/tmp/start.sh"]
