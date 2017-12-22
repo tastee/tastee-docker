@@ -7,7 +7,7 @@ services:
 
 before_install:
   - docker build -t tastee/tastee .
-  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" tastee
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker push tastee/tastee
 
 script:
