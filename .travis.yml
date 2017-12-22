@@ -1,9 +1,14 @@
 sudo: required
 
+language: ruby
+
 services:
   - docker
 
-after_success:
-  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" tastee
+before_install:
   - docker build -t tastee/tastee .
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" tastee
   - docker push tastee/tastee
+
+script:
+  - bundle exec rake test
