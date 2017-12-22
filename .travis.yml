@@ -1,0 +1,11 @@
+sudo: required
+
+node_js:
+  - "7"
+services:
+  - docker
+
+after_success:
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" tastee
+  - docker build -t tastee/tastee .
+  - docker push tastee/tastee
