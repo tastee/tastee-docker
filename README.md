@@ -20,3 +20,7 @@ docker run -it -v <LOCAL_PATH>:/tmp/tastee tastee -b firefox -o /tmp/tastee/repo
 ```
 
 LOCAL_PATH is a directory containing Tastee files.
+
+# Known issues
+
+* Do not work with Chrome for now : unable to start Chrome within the docker
