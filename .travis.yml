@@ -6,6 +6,6 @@ services:
   - docker
 
 before_install:
-  - docker build -t tastee/tastee .
+  - docker build -t tastee/tastee:$TRAVIS_TAG --build-arg CACHEBUST=$(date +%s) .
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - docker push tastee/tastee
+  - docker push tastee/tastee:$TRAVIS_TAG
